@@ -1,0 +1,42 @@
+# Define workflow name for GitHub Actions UI
+name: Compile LaTeX PDF
+
+# Trigger execution on push, PR, or manual dispatch
+on:
+  push:
+    branches:
+      - proposal
+      - project
+  pull_request:
+    branches:
+      - proposal
+      - project
+  workflow_dispatch:
+
+# Execute PDF compilation pipeline
+jobs:
+  build_pdf:
+    runs-on: ubuntu-latest
+    steps:
+      # Fetch repository source code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Compile LaTeX source into PDF using XeLaTeX
+      - name: Compile LaTeX Document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          args: "-xelatex -file-line-error -interaction=nonstopmode"
+
+      # Align PDF file name with target branch name
+      - name: Rename PDF to Branch Name
+        run: mv main.pdf ${{ github.ref_name }}.pdf
+
+      # Persist compiled PDF as workflow artifact
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.ref_name }}
+          path: ${{ github.ref_name }}.pdf
+          if-no-files-found: error
