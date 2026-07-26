@@ -1,29 +1,17 @@
-\NeedsTeXFormat{LaTeX2E}
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{bcsitreport}[2026-07-25 BCSIT Report]
 
 % Package Options and Setup
-\RequirePackage{kvoptions}
-\SetupKeyvalOptions{
-    family=bcsitrep,
-    prefix=bcsitrep@
-}
-
-% Define mutually exclusive options for proposal and project reports
-\DeclareBoolOption[false]{proposal}
-\DeclareBoolOption[false]{project}
-\ProcessKeyvalOptions*
-
-% Validate options and configure section numbering depth accordingly
-\ifbcsitrep@proposal
-    \ifbcsitrep@project
-        \PackageError{bcsitreport}{Cannot use both 'proposal' and 'project' options together}{Choose only one style option.}
-    \fi
+\DeclareOption{proposal}{
     % Proposal reports use unnumbered sections
     \setcounter{secnumdepth}{-1}
-\else
+}
+\DeclareOption{project}{
     % Project reports use standard numbered sections
     \setcounter{secnumdepth}{3}
-\fi
+}
+
+\ProcessOptions\relax
 
 % Localization and Document Nomenclature
 \RequirePackage[american]{babel}
