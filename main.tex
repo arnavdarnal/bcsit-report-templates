@@ -1,1 +1,27 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage[proposal]{bcsitreport}
 
+% Define your acronyms here
+\newacronym{case}{CASE}{Computer-Aided Software Engineering}
+\newacronym{css}{CSS}{Cascading Style Sheets}
+\newacronym{html}{HTML}{Hypertext Markup Language}
+
+\begin{document}
+    \include{front-matter/01-title}
+
+    \frontmatter
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    \listofabbreviations
+
+    \mainmatter
+    \include{main-matter/01-introduction}
+    \include{main-matter/02-problem-statement}
+    \include{main-matter/03-objectives}
+    \include{main-matter/04-methodology}
+    \include{main-matter/05-gantt-chart}
+    \include{main-matter/06-expected-outcomes}
+    
+    \bibliography{references}
+\end{document}
