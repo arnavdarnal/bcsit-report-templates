@@ -1,1 +1,30 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage[project]{bcsitreport}
 
+% Define your acronyms here
+\newacronym{case}{CASE}{Computer-Aided Software Engineering}
+\newacronym{css}{CSS}{Cascading Style Sheets}
+\newacronym{html}{HTML}{Hypertext Markup Language}
+
+\begin{document}
+    \include{front-matter/01-title}
+
+    \frontmatter
+    \include{front-matter/02-supervisor-recommendation}
+    \include{front-matter/03-approval}
+    \include{front-matter/04-abstract}
+    \include{front-matter/05-acknowledgments}
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    \listofabbreviations
+
+    \mainmatter
+    \include{main-matter/01-introduction}
+    \include{main-matter/02-literature-review}
+    \include{main-matter/03-systems-analysis-design}
+    \include{main-matter/04-implementation-testing}
+    \include{main-matter/05-conclusion-future-recommendations}
+
+    \bibliography{references}
+\end{document}
