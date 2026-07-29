@@ -20,11 +20,11 @@ jobs:
     steps:
       # Fetch repository source code
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Compile LaTeX source into PDF using XeLaTeX
       - name: Compile LaTeX Document
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: main.tex
           args: "-xelatex -file-line-error -interaction=nonstopmode"
@@ -35,7 +35,7 @@ jobs:
 
       # Persist compiled PDF as workflow artifact
       - name: Upload PDF Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ github.ref_name }}
           path: ${{ github.ref_name }}.pdf
