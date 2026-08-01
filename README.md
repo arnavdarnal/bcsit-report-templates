@@ -15,18 +15,14 @@ You do not need to install complex LaTeX distributions or compilers on your loca
 If you are new to Git or simply prefer a web-based interface, you can edit the LaTeX files directly in your browser:
 
 1. Navigate to the specific `.tex` file you wish to edit.
-
 2. Click the pencil icon on the top right corner of the file view to enter edit mode.
-
 3. Make your changes and commit them directly to the branch.
 
 #### Option B: Editing Locally & Pushing Changes
 If you prefer to work on your local machine, you can clone the repository and edit the files using your preferred LaTeX editor:
 
 1. Open the cloned repository in your LaTeX editor and make your changes to the `.tex` files.
-
 2. After making your changes, commit them to your local repository and push them back to GitHub:
-
     ```bash
     git add .
     git commit -m "Update report content"
