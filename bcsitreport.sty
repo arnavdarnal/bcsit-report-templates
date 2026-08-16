@@ -138,6 +138,16 @@
     \pagenumbering{roman}
 }
 
+\newcommand{\frontchapter}[2][]{%
+    \clearpage
+    \ifstrempty{#1}{}{%
+        {\fontsize{12}{14}\selectfont #1\par}
+        \vspace{40pt}%
+    }%
+    {\fontsize{16}{20}\selectfont\bfseries\centering\MakeUppercase{#2}\par}
+    \vspace{40pt}%
+}
+
 \newcommand{\mainmatter}{
     \clearpage
     \pagenumbering{arabic}
@@ -146,6 +156,8 @@
 
 \newcommand{\backmatter}{
     \clearpage
+    \appendix
+    \setcounter{tocdepth}{0}
 }
 
 \pagestyle{plain}
